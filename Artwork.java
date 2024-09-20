@@ -1,0 +1,74 @@
+public class Artwork{
+
+	private String title;
+	private int year;
+	private Artist artist;
+	
+	public Artwork(String title , int year , Artist artist){
+		this.title = title;
+		this.year  = year;
+		this.artist = artist;
+	
+	
+	
+	}
+	public Artwork(String title , int year){
+	
+		this(title,year,new Artist("Unknown Artist"));
+	
+	}
+	public String getTitle(){
+	  return this.title;
+	
+	}
+	public int getYear(){
+	  return this.year;
+	
+	}
+	public Artist getArtist(){
+	
+	  return this.artist;
+	
+	}
+	@OVerride
+	public String toString(){
+	      
+	  return "The artwork "+this.title+" was published by "+this.artist.getName()+" in the year "+this.year+".";  
+	}
+	public Artwork shallowCopy(){
+	  return new Artwork(this.title,this.year,this.artist);
+	}
+	public Artwork deepCopy(){
+	  return new Artwork(this.title,this.year,new Artist(this.artist.getName()));
+	}
+	public void setYear(int year){
+	  this.year = year;
+	}
+	public void setTitle(String title){
+	  this.title = title;
+	
+	}
+	public void setArtistName(String name){
+	  this.artist.setName(name);
+	}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
