@@ -1,9 +1,9 @@
 public class Artwork{
-
+    //attributes
 	private String title;
 	private int year;
 	private Artist artist;
-	
+	//first constructor
 	public Artwork(String title , int year , Artist artist){
 		this.title = title;
 		this.year  = year;
@@ -12,11 +12,13 @@ public class Artwork{
 	
 	
 	}
+	//second constructor
 	public Artwork(String title , int year){
 	
 		this(title,year,new Artist("Unknown Artist"));
 	
 	}
+	//getters
 	public String getTitle(){
 	  return this.title;
 	
@@ -30,17 +32,22 @@ public class Artwork{
 	  return this.artist;
 	
 	}
-	@OVerride
+	//Overrriding the toString()
+	@Override
 	public String toString(){
 	      
 	  return "The artwork "+this.title+" was published by "+this.artist.getName()+" in the year "+this.year+".";  
 	}
+	
+	//shallow copy method
 	public Artwork shallowCopy(){
 	  return new Artwork(this.title,this.year,this.artist);
 	}
+	//deep copy method
 	public Artwork deepCopy(){
 	  return new Artwork(this.title,this.year,new Artist(this.artist.getName()));
 	}
+	//setters
 	public void setYear(int year){
 	  this.year = year;
 	}
